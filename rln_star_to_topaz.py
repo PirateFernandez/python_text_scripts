@@ -1,3 +1,7 @@
+"""python script to convert mamual o autopick particles coordinates files from Relion format to Topaz format."""
+"""this rln_to_topaz.py scripts uses the class file RlnTopaz.py class, creating a instance of the class per rln particle file."""
+"""this script takes as argument the full path to the directory where the xxx_manual.star or xxx_autopick.star files are located"""
+"""usage: python3.x rln_star_to_topaz.py /folder/folder/project_folder_where_relion_gui_starts/ManualPick/jobxxx/xxxx"""
 import os
 from rlntotopaz2 import RlnToTopaz
 import sys
