@@ -65,7 +65,16 @@ for i in res_list_3:
 	res_list_4.append(float(i_split[-2]))
 """generate a second dictionary mapping log file names (str) to res (floats)"""
 dic_img_res_2 = dict(zip(file_list_2, res_list_4))
-"""print only those logs files with resolution values better than the especified res number"""
+		
+"""print only those logs files with resolution values better than the especified number"""
+"""if no key store a value lower than res_limit, print message to report that."""
+key_to_show = []
 for key, value in dic_img_res_2.items():
 	if value < resolution_limit:
-		print((f"Image {key} reach resolution beyond {resolution_limit}.").strip())
+		key_to_show.append((f"Image {key} reach resolution beyond {resolution_limit}."))
+if len(key_to_show) != 0:
+	for i in key_to_show:
+		print(i)
+elif len(key_to_show) == 0:
+	print(f"No image with better resolution than {resolution_limit}")	
+
