@@ -46,17 +46,9 @@ def extract_y_displacement(filelistwithpath):
 					y_displacement.append(float(i2_split[9]))
 	return y_displacement
 
-#start_time = time.time()
-#seconds = 4
-#"""infinite while loop!!!"""
-#while True:
-#    current_time = time.time()
-#    elapsed_time = current_time - start_time
-
-#    if elapsed_time > seconds:
-#		print("Finished iterating in: " + str(int(elapsed_time))  + " seconds")
-#flag = True
+"""infinite loop to write a html file to be refreshed in chrome"""
 while True:
+	"""run extractor of logs files every 2 seconds"""
 	time.sleep(2)
 	file_list_mcorr = os.listdir(filepath_mcorr)
 	file_list_mcorr_2 = []
@@ -82,7 +74,7 @@ while True:
 	ax[1].scatter(y_lenght, y_mcorr_plot)
 	ax[1].plot(y_lenght, y_mcorr_plot)
 	ax[1].set(xlabel='MotionCorr Y displacement')
-#plt.show()
+	"""use mpld3 module to generate a html file from matplotlib every iteration"""
 	test = mpld3.fig_to_html(fig)	
 	write_html = '/home/ifernandez/Documents/python3_work/test.html'
 	with open(write_html, 'w') as f:
