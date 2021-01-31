@@ -4,9 +4,13 @@ import numpy as np
 import mrcfile
 import matplotlib.pyplot as plt 
 import matplotlib.image as mpimg
+"""Using mrcfile python package, open .ctf as mrc python obbject"""
 filewithpath = '/Users/israel_CUMC/Documents/relion_files/ctffind_files/example.ctf'
+"""This is just to generate a variable with the file name"""
 filewithpath_split = filewithpath.split('/')
 file_no_path = filewithpath_split[-1]
+"""after opening, using mrcfile.header, extract the dimensions of the image"""
+
 with mrcfile.open(filewithpath) as emd:
 	nx, ny, nz = emd.header['nx'], emd.header['ny'], emd.header['nz']
 	#x0, y0, z0 = emd.header['origin']['x'], emd.header['origin']['y'], emd.header['origin']['z']
@@ -16,6 +20,7 @@ with mrcfile.open(filewithpath) as emd:
 	#xyz_1 = np.asarray(xyz)
 	#xyz_2 = xyz_1.reshape(3, nx*ny*nz)
 	#xyz_3 = xyz_2.T
+	"""reshape the numpy array exported by mrcfile.data to 512,512"""
 	only = emd.data.flatten(order='F').reshape(emd.header['nx'], emd.header['ny'])
 	#only = emd.data.flatten(order='F').reshape(nx, ny, nz)
 	#only_t = only.reshape(512, 512)
