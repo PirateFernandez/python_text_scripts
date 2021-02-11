@@ -13,10 +13,11 @@ with mrcfile.open(filewithpath) as emd:
 	ctf_np_512 = emd.data.flatten(order='F').reshape(emd.header['nx'], emd.header['ny'])
 """Simple way of scaling down images by reshaping the numpy array and averaging groups of values."""
 ctf_np_256_reshaped = np.reshape(ctf_np_512, (256, 2, 256, 2)) 
+"""numpy mean function can average over two dimension if a tuple is supplied with axes to use."""
 ctf_np_256 = np.mean(ctf_np_256_reshaped, (1, 3))
 ctf_np_128_reshaped = np.reshape(ctf_np_512, (128, 4, 128, 4))
 ctf_np_128 = np.mean(ctf_np_128_reshaped, (1, 3)) 
-"""Plot in one figure with three subpanels the ctf image full size, bin2 and bin4 with diffrent colors."""
+"""Plot in one figure with three subpanels the ctf image full size, bin2 and bin4 with diffrent color-maps."""
 fig = plt.figure()
 ax_0 = fig.add_subplot(1, 3, 1)
 imgplot = plt.imshow(ctf_np_512, cmap='binary')
