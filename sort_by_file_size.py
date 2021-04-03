@@ -1,5 +1,5 @@
 import os 
-dirpath = '/cryoem-data2/h40S-5B/small_set'
+dirpath = '/cryoem-data2/test/small_set'
 fileslist = os.listdir(dirpath)
 mrclist = []
 for i in fileslist:
