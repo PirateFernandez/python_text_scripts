@@ -20,7 +20,7 @@ with open(filepath, 'r') as object_file:
 					file_lines_clean.append(i)
 			ptc_lines = []
 			for i in file_lines_clean:
-				if i[1].isdigit():
+				if "@" in i:
 					ptc_lines.append(i)
 			x_coord = []
 			for i in ptc_lines:
